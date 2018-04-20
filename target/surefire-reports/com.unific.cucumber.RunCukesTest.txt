@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.unific.cucumber.RunCukesTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 56.864 sec - in com.unific.cucumber.RunCukesTest
