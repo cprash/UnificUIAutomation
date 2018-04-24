@@ -32,6 +32,16 @@ public class CampaignDashboard {
     @FindAll(@FindBy(xpath=".//*[@id='app']/div/div/div/div/div/div[2]/div[1]/div/table/tbody/tr/td[1]/a"))
     private List<WebElement> campaigndashboardtablecols;
 
+    @FindBy(linkText = "Default order confirmation campaign.")
+    private  WebElement defaultorderconfirmationcampaignLink;
+
+    @FindBy(linkText = "Default abandoned cart campaign")
+    private WebElement defaultabandonedcartLink;
+
+    public WebElement getDefaultabandonedcartLink() { return defaultabandonedcartLink; }
+
+    public WebElement getDefaultorderconfirmationcampaignLink() { return defaultorderconfirmationcampaignLink; }
+
     public WebElement getUnificLogo() {
         return unificLogo;
     }

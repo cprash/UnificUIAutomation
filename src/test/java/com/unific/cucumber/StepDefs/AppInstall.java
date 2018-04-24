@@ -2,6 +2,7 @@ package com.unific.cucumber.StepDefs;
 
 import com.unific.cucumber.Browser;
 import com.unific.cucumber.Hooks;
+import com.unific.cucumber.Repo.CampaignDashboard;
 import com.unific.cucumber.Repo.PostSignUp;
 import com.unific.cucumber.Repo.ShopifyPartners;
 import cucumber.api.DataTable;
@@ -16,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
@@ -27,6 +29,7 @@ public class AppInstall {
     private Browser browser;
     private ShopifyPartners shopifyPartners;
     private PostSignUp postSignUp;
+    private CampaignDashboard campaignDashboard;
 
     public String storeurl;
     public String devstoreurl;
@@ -189,7 +192,7 @@ public class AppInstall {
         postSignUp.getSkipBtn().click();
         hooks.explicitWait(driver,10, postSignUp.getStartusingunificLink());
         postSignUp.getStartusingunificLink().click();
-        System.out.println("StoreURl: "+storeurl);
+        System.out.println("StoreURl: "+devstoreurl);
         System.out.println("UnificLoginEmail : "+Login.unificloginemail);
         System.out.println("UnificLoginPassword : "+Login.str3);
     }
@@ -215,7 +218,55 @@ public class AppInstall {
         shopifyPartners.getInstallunlistedappLink().click();
     }
 
+    @And("^User verifies pre filled information$")
+    public void user_verifies_pre_filled_information(DataTable info) throws InterruptedException {
+        List<List<String>> data = info.raw();
+        postSignUp =browser.getPostSignUp();
+        Thread.sleep(10000);
 
+        Assert.assertEquals(data.get(1).get(0), postSignUp.getStreetaddress().getAttribute("value"));
+        Assert.assertEquals(data.get(1).get(1), postSignUp.getCity().getAttribute("value"));
+        Assert.assertEquals(data.get(1).get(2), postSignUp.getZip().getAttribute("value"));
+        Assert.assertEquals(data.get(1).get(3), postSignUp.getBillingaddressstate().getText());
+        Assert.assertEquals(data.get(1).get(4), postSignUp.getBillingaddresscoountry().getText());
+
+
+    }
+
+    @And("^User validates Big Price and enters Credit Card Details$")
+    public void user_validates_big_price_and_enters_credit_card_details(DataTable info) {
+        List<List<String>> data = info.raw();
+        Assert.assertEquals(data.get(1).get(0), postSignUp.getBigprice().getText());
+        //JavascriptExecutor js = (JavascriptExecutor) driver;
+        //js.executeScript("arguments[0].scrollIntoView();", postSignUp.getCardnumber());
+        driver.switchTo().frame("__privateStripeFrame4");
+        postSignUp.getCardnumber().sendKeys((data.get(1).get(1)));
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame("__privateStripeFrame5");
+        postSignUp.getPostal().sendKeys(data.get(1).get(2));
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame("__privateStripeFrame6");
+        postSignUp.getExpdate().sendKeys(data.get(1).get(3));
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame("__privateStripeFrame7");
+        postSignUp.getCvc().sendKeys(data.get(1).get(4));
+        driver.switchTo().defaultContent();
+
+    }
+
+    @And("^User selects to Join$")
+    public void user_selects_to_join()  {
+        postSignUp.getJoinBtn().click();
+    }
+
+    @And("^Default Order Confirmation Campaign and Default Abandoned Cart Campaign should be preinstalled$")
+    public void default_order_confirmation_campaign_and_default_abandoned_cart_campaign_should_be_preinstalled() throws InterruptedException {
+        Thread.sleep(5000);
+        campaignDashboard= browser.getCampaignDashboard();
+        this.campaignDashboard.getDefaultorderconfirmationcampaignLink().isDisplayed();
+        this.campaignDashboard.getDefaultabandonedcartLink().isDisplayed();
+
+    }
 
 
 

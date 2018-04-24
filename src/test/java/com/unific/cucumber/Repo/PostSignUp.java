@@ -12,19 +12,19 @@ public class PostSignUp {
 
     public PostSignUp(WebDriver driver){ PageFactory.initElements(driver,this);}
 
-    @FindBy(id = "react-select-2--value")
+    @FindBy(id = "react-select-4--value")
     private WebElement industryList;
 
-    @FindAll(@FindBy(xpath = "//*[starts-with(@id,'react-select-2--option-')]"))
+    @FindAll(@FindBy(xpath = "//*[starts-with(@id,'react-select-4--option-')]"))
     private List<WebElement> industryListoptions;
 
     @FindBy(id = "shop_owner")
     private WebElement fullnameTxt;
 
-    @FindBy(id = "react-select-3--value")
+    @FindBy(id = "react-select-5--value")
     private WebElement describeyourselfList;
 
-    @FindAll(@FindBy(xpath = "//*[starts-with(@id,'react-select-3--option-')]"))
+    @FindAll(@FindBy(xpath = "//*[starts-with(@id,'react-select-5--option-')]"))
     private  List<WebElement> describeyourselfListoptions;
 
     @FindBy(id = "name")
@@ -39,14 +39,20 @@ public class PostSignUp {
     @FindBy(id = "zip")
     private WebElement zip;
 
-    @FindBy(id = "react-select-4--value-item")
+    @FindBy(id = "react-select-6--value-item")
     private WebElement country;
 
-    @FindBy(id = "react-select-5--value-item")
+    @FindBy(id = "react-select-7--value-item")
     private WebElement state;
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement nextBtn;
+
+    @FindBy(id = "react-select-3--value-item")
+    private WebElement billingaddressstate;
+
+    @FindBy(id = "react-select-2--value-item")
+    private WebElement billingaddresscoountry;
 
     @FindBy(linkText = "skip this")
     private WebElement skipBtn;
@@ -62,6 +68,35 @@ public class PostSignUp {
 
     @FindBy(className = "bigprice")
     private WebElement bigprice;
+
+    @FindBy(xpath = "//input[@name='cardnumber']")
+    private WebElement cardnumber;
+
+    @FindBy(xpath = "//input[@name='postal']")
+    private WebElement postal;
+
+    @FindBy(xpath = "//input[@name='exp-date']")
+    private WebElement expdate;
+
+    @FindBy(xpath = "//input[@name='cvc']")
+    private WebElement cvc;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement joinBtn;
+
+    public WebElement getBillingaddresscoountry() { return billingaddresscoountry; }
+
+    public WebElement getBillingaddressstate() { return billingaddressstate; }
+
+    public WebElement getJoinBtn() { return joinBtn; }
+
+    public WebElement getCardnumber() { return cardnumber; }
+
+    public WebElement getCvc() { return cvc; }
+
+    public WebElement getExpdate() { return expdate; }
+
+    public WebElement getPostal() { return postal; }
 
     public WebElement getBigprice() { return bigprice; }
 

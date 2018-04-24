@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.unific.cucumber.RunCukesTest" time="0.085" tests="11" errors="0" skipped="3" failures="0">
+<testsuite name="com.unific.cucumber.RunCukesTest" time="0.883" tests="17" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="9.0.4+11"/>
@@ -58,21 +58,21 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="Given User has successfully logged into Shopify Partners" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0.001"/>
-  <testcase name="When User selects a Shopify Partner" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0.001"/>
-  <testcase name="And User selects to create a store" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0"/>
-  <testcase name="And User enters Login Information" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0"/>
-  <testcase name="And User enters Store Details" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0"/>
-  <testcase name="And User saves the details" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0"/>
-  <testcase name="Then DevStore is created with a Store URL" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0"/>
-  <testcase name="When User navigates to unific sign up" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="And User signups at unific qa" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1517 ]" time="0.083"/>
+  <testcase name="Given User has successfully logged into Shopify Partners" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0.001"/>
+  <testcase name="When User selects a Business" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User selects to create a developement store" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User enters Login Information" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User enters Store Details" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0.008"/>
+  <testcase name="And User saves the store details" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0.004"/>
+  <testcase name="Then DevStore is created with a Store URL" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="When User navigates to unific sign up" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User signups at unific" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User submits the Store URL at unific and installs the Unlisted App" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User verifies pre filled information" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User validates Big Price and enters Credit Card Details" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="And User selects to Join" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="Then User selects mandatory fields and also verifies pre filled information" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0.002"/>
+  <testcase name="And User skips connection to Facebook and Starts using Unific" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0.001"/>
+  <testcase name="And Default Order Confirmation Campaign and Default Abandoned Cart Campaign should be preinstalled" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0"/>
+  <testcase name="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" classname="Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="0.867"/>
 </testsuite>

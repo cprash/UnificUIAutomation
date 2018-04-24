@@ -1,5 +1,5 @@
 Feature: App Install for Unific
-  @ignore
+
   Scenario: Admin Installation on Shopify Dev Store [ PD-1517 ] [PD-1529]
     Given User has successfully logged into Shopify Partners
     When User selects a Business
