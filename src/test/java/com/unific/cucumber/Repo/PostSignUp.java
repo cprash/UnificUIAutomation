@@ -57,7 +57,11 @@ public class PostSignUp {
     @FindBy(linkText = "skip this")
     private WebElement skipBtn;
 
-    @FindBy(linkText = "Start using Unific!")
+    //@FindBy(linkText = "Start using Unific!")
+    //private WebElement startusingunificLink;
+
+
+    @FindBy(xpath = "//a[contains(text(),'Start using Unific!') and @class='btn-lg btn btn-link e1q3x0712 css-6zhoo2 e66jy4i0']")
     private WebElement startusingunificLink;
 
     @FindBy(name = "store_name")
@@ -83,6 +87,11 @@ public class PostSignUp {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement joinBtn;
+
+    @FindBy(linkText = "Join")
+    private WebElement joinLink;
+
+    public WebElement getJoinLink() { return joinLink; }
 
     public WebElement getBillingaddresscoountry() { return billingaddresscoountry; }
 

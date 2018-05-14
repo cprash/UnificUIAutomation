@@ -6,7 +6,9 @@ import cucumber.api.java.Before;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
@@ -21,11 +23,14 @@ import java.util.Properties;
 public class Browser {
     private WebDriver driver;
     private Properties prop;
+    private String os;
     private LoginPage loginPage;
     private CampaignDashboard campaignDashboard;
     private CampaignCreate campaignCreate;
     private ShopifyPartners shopifyPartners;
     private PostSignUp postSignUp;
+    private LeftNavMenu leftNavMenu;
+
 
     public DesiredCapabilities cache=new DesiredCapabilities();
 
@@ -46,28 +51,102 @@ public class Browser {
             e.printStackTrace();
         }
 
-        cache.setCapability("applicationCacheEnabled",true);
+        cache.setCapability("applicationCacheEnabled", true);
 
-
+        os = System.getProperty("os.name").toLowerCase();
 
         String browser = prop.getProperty("browser");
-        if ("chrome".equals(browser)) {
+        System.out.println(browser);
+        if(os.equalsIgnoreCase("linux"))
+        {
+        if ("chrome".equals(browser))
+        {
             System.setProperty("webdriver.chrome.driver", prop.getProperty("driverExecutable") + "/chromedriver");
             driver = new ChromeDriver(cache);
             driver.manage().window().maximize();
             //driver.manage().deleteAllCookies();
 
-        } else if ("firefox".equals(browser)) {
+        }
+        else if ("firefox".equals(browser))
+        {
             System.setProperty("webdriver.gecko.driver", prop.getProperty("driverExecutable") + "/geckodriver");
             driver = new FirefoxDriver(cache);
+            System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"false");
             driver.manage().window().maximize();
 
-        } else if ("safari".equals(browser)) {
+        }
+        else if ("safari".equals(browser))
+        {
             driver = new SafariDriver();
             driver.manage().window().maximize();
         }
+        else if("chromeheadless".equals(browser))
+        {
 
-        String environment;
+            System.setProperty("webdriver.chrome.driver", prop.getProperty("driverExecutable") + "/chromedriver");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("window-size=1400,800");
+            chromeOptions.addArguments("--headless");
+            driver = new ChromeDriver(chromeOptions);
+            //driver.manage().window().maximize();
+        }
+        else if("firefoxheadless".equals(browser))
+        {
+
+            System.setProperty("webdriver.gecko.driver", prop.getProperty("driverExecutable") + "/geckodriver");
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.addArguments("window-size=1400,800");
+            firefoxOptions.addArguments("--headless");
+            driver = new FirefoxDriver(firefoxOptions);
+            System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"false");
+            //driver.manage().window().maximize();
+        }
+
+        driver.manage().deleteAllCookies();
+    }
+        else if(os.startsWith("mac")) {
+            if ("chrome".equals(browser)) {
+                System.setProperty("webdriver.chrome.driver", prop.getProperty("driverExecutable") + "/chromedriverMac");
+                driver = new ChromeDriver(cache);
+                driver.manage().window().maximize();
+                //driver.manage().deleteAllCookies();
+
+            }
+            else if ("firefox".equals(browser)) {
+                System.setProperty("webdriver.gecko.driver", prop.getProperty("driverExecutable") + "/geckodriverMac");
+                driver = new FirefoxDriver(cache);
+                driver.manage().window().maximize();
+
+            }
+            else if ("safari".equals(browser)) {
+                driver = new SafariDriver();
+                driver.manage().window().maximize();
+            }
+            else if("chromeheadless".equals(browser))
+            {
+
+                System.setProperty("webdriver.chrome.driver", prop.getProperty("driverExecutable") + "/chromedriverMac");
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("window-size=1400,800");
+                chromeOptions.addArguments("--headless");
+                driver = new ChromeDriver(chromeOptions);
+                //driver.manage().window().maximize();
+            }
+            else if("firefoxheadless".equals(browser))
+            {
+
+                System.setProperty("webdriver.gecko.driver", prop.getProperty("driverExecutable") + "/geckodriverMac");
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("window-size=1400,800");
+                firefoxOptions.addArguments("--headless");
+                driver = new FirefoxDriver(firefoxOptions);
+                System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"false");
+                //driver.manage().window().maximize();
+            }
+            driver.manage().deleteAllCookies();
+        }
+
+
 
 
 
@@ -76,6 +155,8 @@ public class Browser {
         campaignCreate = new CampaignCreate(driver);
         shopifyPartners= new ShopifyPartners(driver);
         postSignUp = new PostSignUp(driver);
+        leftNavMenu = new LeftNavMenu(driver);
+
 
         //homePage = new HomePage(driver);
         //settings = new SettingsPage(driver);
@@ -83,6 +164,8 @@ public class Browser {
         public WebDriver getDriver(){ return driver; }
 
         public Properties getProp(){ return prop; }
+
+        public String getOs() { return os; }
 
         public LoginPage getLoginPage() { return loginPage; }
 
@@ -94,9 +177,11 @@ public class Browser {
 
         public PostSignUp getPostSignUp() { return postSignUp; }
 
+        public LeftNavMenu getLeftNavMenu() { return leftNavMenu; }
+
     @After
         public void tearDown(){
                 driver.quit();
-        ;}
+        }
 }
 

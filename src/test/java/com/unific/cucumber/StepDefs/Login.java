@@ -13,6 +13,8 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -25,7 +27,7 @@ public class Login {
     private LoginPage loginPage;
     private CampaignDashboard campaignDashboard;
 
-    public int count=0;
+    public int count;
     public static String unificloginemail;
     public static String str3;
 
@@ -39,7 +41,8 @@ public class Login {
         driver=browser.getDriver();
         prop=browser.getProp();
         loginPage=browser.getLoginPage();
-        driver.get(prop.getProperty("URL"));
+        String URL = hooks.environment();
+        driver.get(URL);
 
 
 
@@ -88,22 +91,45 @@ public class Login {
         String str1= data.get(1).get(0);
         String str2 = data.get(1).get(1);
         str3 = data.get(1).get(2);
+        String str4=null;
         driver=browser.getDriver();
         loginPage=browser.getLoginPage();
         hooks.explicitWait(driver,100,loginPage.getSignupBtn());
         loginPage.getAgreeTnC().click();
+        String os = browser.getOs();
+        prop=browser.getProp();
+        String env=prop.getProperty("Environment");
+        String timeStamp = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
+        if(env.equalsIgnoreCase("qa"))
+            str4="qa";
+        else if(env.equalsIgnoreCase("dev"))
+            str4="dev";
+        else if(env.equalsIgnoreCase("stage"))
+            str4="stage";
+        else if(env.equalsIgnoreCase("prod"))
+            str4="prod";
 
         try{
             do {
+                if(os.equalsIgnoreCase("linux") || os.startsWith("Windows"))
                 loginPage.getEmailText().sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+                else if(os.startsWith("mac"))
+                    loginPage.getEmailText().clear();
+                //loginPage.getEmailText().sendKeys(Keys.COMMAND,"a",Keys.DELETE);
                 Thread.sleep(2000);
-                loginPage.getEmailText().sendKeys(str1+count+str2);
-                loginPage.getPasswordText().sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+                loginPage.getEmailText().sendKeys(str1+str4+timeStamp+str2);
+                if(os.equalsIgnoreCase("linux") || os.startsWith("Windows"))
+                    loginPage.getPasswordText().sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+                else if(os.startsWith("mac"))
+                    loginPage.getPasswordText().clear();
+                    //loginPage.getPasswordText().sendKeys(Keys.COMMAND,"a",Keys.DELETE);
+
+
                 loginPage.getPasswordText().sendKeys(str3);
                 unificloginemail=loginPage.getEmailText().getAttribute("value");
                 loginPage.getSignupBtn().click();
                 count++;
-                Thread.sleep(2000);
+                Thread.sleep(5000);
             }while(loginPage.getUserexistsMsg().isDisplayed());
         }
         catch (Exception e){
@@ -115,9 +141,9 @@ public class Login {
     public void user_navigates_to_unific_sign_up() throws InterruptedException {
         driver=browser.getDriver();
         loginPage=browser.getLoginPage();
-        prop=browser.getProp();
-        driver.navigate().to(prop.getProperty("URL"));
-        hooks.explicitWait(driver,3000000,loginPage.getSignupLink());
+        String str = hooks.environment();
+        driver.navigate().to(str);
+        hooks.explicitWait(driver,300,loginPage.getSignupLink());
         loginPage.getSignupLink().click();
     }
 

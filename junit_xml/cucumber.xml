@@ -1,21 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="245.249855">
-<testcase classname="Pvt Install for Unific" name="Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1506]" time="245.249855">
-<system-out><![CDATA[Given User has successfully logged into Shopify Partners....................passed
-When User selects a Business................................................passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="307.75615">
+<testcase classname="App Install for Unific" name="Admin Installation on Shopify Dev Store [ PD-1517 ] [PD-1529] [PD-1536] [PD-1537] [PD-1545]" time="307.75615">
+<system-out><![CDATA[Given User has successfully logged into Shopify Partner.....................passed
+When User selects Business..................................................passed
 And User selects to create a developement store.............................passed
 And User enters Login Information...........................................passed
 And User enters Store Details...............................................passed
 And User saves the store details............................................passed
-Then DevStore is created with a Store URL...................................passed
-When User navigates to unific sign up.......................................passed
+And User navigates to Apps in the concerned business........................passed
+And User is able to Create App Store Listing or install app from appstore...passed
+And User installs the unlisted or listed App................................passed
+And User validates that the landing page is unific signup...................passed
 And User signups at unific..................................................passed
-And User submits the Store URL at unific and installs the Unlisted App......passed
-And User verifies pre filled information....................................passed
-And User validates Big Price and enters Credit Card Details.................passed
-And User selects to Join....................................................passed
-Then User selects mandatory fields and also verifies pre filled information.passed
-And User skips connection to Facebook and Starts using Unific...............passed
-And Default Order Confirmation Campaign and Default Abandoned Cart Campaign should be preinstalled.passed
+And User validates Big Price................................................passed
+And User selects Join.......................................................passed
+And User selects to Approve charges.........................................passed
 ]]></system-out>
+</testcase>
+</testsuite>
+atingConstructorAccessorImpl.java:45)&#10;&#9;at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)&#10;&#9;at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)&#10;&#9;at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:698)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandles(RemoteWebDriver.java:546)&#10;&#9;at com.unific.cucumber.StepDefs.AppInstall.user_is_able_to_create_app_store_listing(AppInstall.java:318)&#10;&#9;at ✽.And User is able to Create App Store Listing or install app from appstore(AdminAppInstall.feature:16)&#10;"><![CDATA[Given User has successfully logged into Shopify Partner.....................passed
+When User selects Business..................................................passed
+And User selects to create a developement store.............................passed
+And User enters Login Information...........................................passed
+And User enters Store Details...............................................passed
+And User saves the store details............................................passed
+And User navigates to Apps in the concerned business........................passed
+And User is able to Create App Store Listing or install app from appstore...failed
+And User installs the unlisted or listed App................................skipped
+And User validates that the landing page is unific signup...................skipped
+And User signups at unific..................................................skipped
+And User validates Big Price................................................skipped
+And User selects Join.......................................................skipped
+And User selects to Approve charges.........................................skipped
+
+StackTrace:
+org.openqa.selenium.WebDriverException: Failed to decode response from marionette
+Build info: version: '3.5.2', revision: '10229a9', time: '2017-08-21T17:29:55.15Z'
+System info: host: 'WKS-195', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.13.0-41-generic', java.version: '9.0.4'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=/tmp/rust_mozprofile.1Ots8Ky1tkJ0, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, moz:headless=false, platform=ANY, moz:accessibilityChecks=false, moz:useNonSpecCompliantPointerOrigin=false, acceptInsecureCerts=false, browserVersion=60.0, platformVersion=4.13.0-41-generic, moz:processID=20927, browserName=firefox, javascriptEnabled=true, platformName=linux, moz:webdriverClick=true}]
+Session ID: bd7f87a0-e855-40a3-910a-33a4a0899720
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:698)
+	at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandles(RemoteWebDriver.java:546)
+	at com.unific.cucumber.StepDefs.AppInstall.user_is_able_to_create_app_store_listing(AppInstall.java:318)
+	at ✽.And User is able to Create App Store Listing or install app from appstore(AdminAppInstall.feature:16)
+]]></failure>
+</testcase>
+</testsuite>
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:698)
+	at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:378)
+	at com.unific.cucumber.StepDefs.AppInstall.user_saves_the_store_details(AppInstall.java:232)
+	at ✽.And User saves the store details(AdminAppInstall.feature:14)
+]]></failure>
 </testcase>
 </testsuite>
