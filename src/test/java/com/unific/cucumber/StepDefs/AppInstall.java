@@ -36,7 +36,7 @@ public class AppInstall {
     private CampaignDashboard campaignDashboard;
     private LoginPage loginPage;
 
-    public String storeurl;
+
     public String devstoreurl;
 
 
@@ -49,6 +49,7 @@ public class AppInstall {
         driver=browser.getDriver();
         prop=browser.getProp();
         shopifyPartners=browser.getShopifyPartners();
+
 
         driver.get(prop.getProperty("shopifyPartnerUrl"));
         hooks.explicitWait(driver,30,shopifyPartners.getPartnerloginlink());
@@ -85,9 +86,6 @@ public class AppInstall {
         driver.get(prop.getProperty("shopifyPartnerUrl"));
         hooks.explicitWait(driver,30,shopifyPartners.getPartnerloginlink());
         shopifyPartners.getPartnerloginlink().click();
-        //JavascriptExecutor js = (JavascriptExecutor) driver;
-        //js.executeScript("arguments[0].click();", shopifyPartners.getPartnerloginlink());
-
         Thread.sleep(6000);
         List<String> emailpwd = hooks.EnvConfig();
         try
@@ -100,7 +98,8 @@ public class AppInstall {
 
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("arguments[0].click();", shopifyPartners.getShopifyloginBtn());
-            }}
+            }
+        }
         catch(Exception e)
         {
             shopifyPartners.getShopifyEmail().sendKeys(emailpwd.get(0));
@@ -115,31 +114,11 @@ public class AppInstall {
 
     @When("^User selects Business$")
     public void user_selects_business() throws InterruptedException {
-        //String environment = prop.getProperty("Environment");
+
         List<String> str = hooks.EnvConfig();
         Thread.sleep(5000);
         driver.navigate().to(str.get(3));
-        //if(environment.equalsIgnoreCase("qa"))
-        //{
-            //hooks.explicitWait(driver,30,shopifyPartners.getPartnerApp_Install_Testing());
-            //shopifyPartners.getPartnerApp_Install_Testing().click();
-        //}
-        //else if(environment.equalsIgnoreCase("dev"))
-        //{   Thread.sleep(5000);
-            //hooks.explicitWait(driver,30,shopifyPartners.getUnificLink());
-           //shopifyPartners.getUnificLink().click();
-        //}
-        //else if(environment.equalsIgnoreCase("stage"))
-        //{   Thread.sleep(5000);
-            //hooks.explicitWait(driver,30,shopifyPartners.getUnificLink());
-            //shopifyPartners.getUnificLink().click();
-        //}
-        //else if(environment.equalsIgnoreCase("prod"))
-        //{   Thread.sleep(5000);
-            //hooks.explicitWait(driver,30,shopifyPartners.getPartnerApp_Install_Testing());
-            //shopifyPartners.getPartnerApp_Install_Testing().click();
-        //}
-    }
+        }
 
 
     @When("^User selects a Business$")
@@ -150,7 +129,7 @@ public class AppInstall {
 
     @And("^User selects to create a developement store$")
     public void user_selects_to_create_a_development_store() throws InterruptedException {   //hooks.explicitWait(driver,30,shopifyPartners.getCreatestoreLink());
-        //shopifyPartners.getCreatestoreLink().click();
+
         Thread.sleep(6000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", shopifyPartners.getCreatestoreLink());
@@ -171,25 +150,10 @@ public class AppInstall {
     public void user_enters_store_details(DataTable storeinfo) throws InterruptedException {
         List<List<String>> data = storeinfo.raw();
         String os = browser.getOs();
-
-        if(os.equalsIgnoreCase("linux") || os.startsWith("Windows")) {
-            shopifyPartners.getCreatestoreAddress().sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-            shopifyPartners.getCreatestoreAddress().sendKeys(data.get(1).get(0));
-        }
-        else if(os.startsWith("mac")) {
-            hooks.setAttribute(this.driver,shopifyPartners.getCreatestoreAddress(),"value",data.get(1).get(0));
-            }
-
-
-        if(os.equalsIgnoreCase("linux") || os.startsWith("Windows")) {
-            shopifyPartners.getCreatestoreCity().sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-            shopifyPartners.getCreatestoreCity().sendKeys(data.get(1).get(1));
-        }
-        else if(os.startsWith("mac")) {
-            hooks.setAttribute(this.driver,shopifyPartners.getCreatestoreCity(),"value",data.get(1).get(1));
-        }
+        hooks.setAttribute(this.driver,shopifyPartners.getCreatestoreAddress(),"value",data.get(1).get(0));
+        hooks.setAttribute(this.driver,shopifyPartners.getCreatestoreCity(),"value",data.get(1).get(1));
         hooks.setAttribute(this.driver,shopifyPartners.getCreatestoreZip(),"value",data.get(1).get(2));
-        //shopifyPartners.getCreatestoreZip().sendKeys(data.get(1).get(2));
+
         Select select=new Select(shopifyPartners.getCreatestoreState());
         select.selectByVisibleText(data.get(1).get(3));
         Select select1=new Select(shopifyPartners.getCreatestoreCountry());
@@ -202,7 +166,7 @@ public class AppInstall {
        Thread.sleep(10000);
        try{
            if(shopifyPartners.getAlreadySellingList().isDisplayed())
-           {    System.out.println("Check Check");
+           {
                Select select=new Select(shopifyPartners.getAlreadySellingList());
                select.selectByValue("I sell with a different system");
 
@@ -237,35 +201,22 @@ public class AppInstall {
         } catch (IOException e) {
             e.printStackTrace();
         }
-       //hooks.explicitWait(driver,30,shopifyPartners.getShopifypartnerprofileLink());
-       //shopifyPartners.getStoreName().click();
-        //storeurl=shopifyPartners.getStoreURl().getText();
+
 
     }
 
     @And("^User navigates to Apps in the concerned business$")
     public void user_navigates_to_apps_for_business() throws InterruptedException {
         String environment = prop.getProperty("Environment");
-        if(environment.equalsIgnoreCase("prod"))
-        {
+        if(environment.equalsIgnoreCase("prod")) {
             shopifyPartners.getAppsLink().click();
         }
         else {
         driver.navigate().to(prop.getProperty("shopifyPartnerUrl"));
         shopifyPartners.getPartnerloginlink().click();
         Thread.sleep(6000);
-            List<String> str = hooks.EnvConfig();
-            driver.navigate().to(str.get(3));
-//        if (environment.equalsIgnoreCase("qa")) {
-//            hooks.explicitWait(driver, 30, shopifyPartners.getIntegrationsLink());
-//            shopifyPartners.getIntegrationsLink().click();
-//        } else if (environment.equalsIgnoreCase("dev")) {
-//            hooks.explicitWait(driver, 30, shopifyPartners.getUnificLink());
-//            shopifyPartners.getUnificLink().click();
-//        } else if (environment.equalsIgnoreCase("stage")) {
-//            hooks.explicitWait(driver, 30, shopifyPartners.getUnificLink());
-//            shopifyPartners.getUnificLink().click();
-//        }
+        List<String> str = hooks.EnvConfig();
+        driver.navigate().to(str.get(3));
         Thread.sleep(6000);
         shopifyPartners.getAppsLink().click();
         Thread.sleep(6000);
@@ -323,17 +274,8 @@ public class AppInstall {
             hooks.explicitWait(driver, 30, shopifyPartners.getGetLink());
             shopifyPartners.getGetLink().click();
             hooks.explicitWait(driver, 30, shopifyPartners.getLoginSubmit());
-
-            if (os.equalsIgnoreCase("linux") || os.startsWith("Windows")) {
-                shopifyPartners.getStoreURLtxt().sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-                shopifyPartners.getStoreURLtxt().sendKeys(devstoreurl);
-            } else if (os.startsWith("mac")) {
-                hooks.setAttribute(this.driver,shopifyPartners.getStoreURLtxt(),"value",devstoreurl);
-
-            }
+            hooks.setAttribute(this.driver,shopifyPartners.getStoreURLtxt(),"value",devstoreurl);
             Thread.sleep(5000);
-            storeurl = shopifyPartners.getStoreURLtxt().getAttribute("value");
-            //shopifyPartners.getLoginSubmit().click();
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].click();", shopifyPartners.getLoginSubmit());
 
@@ -395,21 +337,11 @@ public class AppInstall {
         postSignUp.getNextBtn().click();
     }
 
-    @And("^User skips the connection to Facebook and Starts using Unific$")
-    public void user_skips_the_connection_to_facebook_and_starts_using_unific()  {
-       //hooks.explicitWait(driver,10, postSignUp.getSkipBtn());
-       //postSignUp.getSkipBtn().click();
-       hooks.explicitWait(driver,10, postSignUp.getStartusingunificLink());
-       postSignUp.getStartusingunificLink().click();
-        System.out.println("StoreURl: "+devstoreurl);
-        System.out.println("UnificLoginEmail : "+Login.unificloginemail);
-        System.out.println("UnificLoginPassword : "+Login.str3);
-    }
 
     @And("^User skips connection to Facebook and Starts using Unific$")
     public void user_skips_connection_to_facebook_and_starts_using_unific()  {
-        //hooks.explicitWait(driver,10, postSignUp.getSkipBtn());
-        //postSignUp.getSkipBtn().click();
+        hooks.explicitWait(driver,10, postSignUp.getSkipBtn());
+        postSignUp.getSkipBtn().click();
         hooks.explicitWait(driver,30, postSignUp.getStartusingunificLink());
         postSignUp.getStartusingunificLink().click();
         System.out.println("StoreURl: "+devstoreurl);
@@ -431,23 +363,18 @@ public class AppInstall {
         String os = browser.getOs();
         prop=browser.getProp();
         String Env=prop.getProperty("Environment");
-        hooks.explicitWait(driver,300,postSignUp.getSignupStorenameTxt());
-       // while(postSignUp.getSignupStorenameTxt().getAttribute("value")!=null)
-         //       postSignUp.getSignupStorenameTxt().sendKeys(Keys.BACK_SPACE);
+        hooks.explicitWait(driver,30,postSignUp.getSignupStorenameTxt());
+        hooks.setAttribute(this.driver,postSignUp.getSignupStorenameTxt(),"value",devstoreurl);
         if(os.equalsIgnoreCase("linux") || os.startsWith("Windows"))
-        postSignUp.getSignupStorenameTxt().sendKeys(Keys.CONTROL,"a",Keys.DELETE);
-        else if(os.startsWith("mac"))
-            postSignUp.getSignupStorenameTxt().clear();
-        //postSignUp.getSignupStorenameTxt().sendKeys(Keys.COMMAND,"a",Keys.DELETE);
-        postSignUp.getSignupStorenameTxt().sendKeys(devstoreurl);
+        hooks.explicitWait(driver,30,postSignUp.getSubmitBtn());
         postSignUp.getSubmitBtn().click();
 
         if(Env.equalsIgnoreCase("prod")) {
-            hooks.explicitWait(driver, 300, shopifyPartners.getInstalllistedappLink());
+            hooks.explicitWait(driver, 100, shopifyPartners.getInstalllistedappLink());
             shopifyPartners.getInstalllistedappLink().click();
         }
             else {
-            hooks.explicitWait(driver, 300, shopifyPartners.getInstallunlistedappLink());
+            hooks.explicitWait(driver, 100, shopifyPartners.getInstallunlistedappLink());
             shopifyPartners.getInstallunlistedappLink().click();
         }
 
@@ -458,7 +385,7 @@ public class AppInstall {
         List<List<String>> data = info.raw();
         postSignUp =browser.getPostSignUp();
         Thread.sleep(10000);
-        hooks.explicitWait(driver,300,postSignUp.getStreetaddress());
+        hooks.explicitWait(driver,100,postSignUp.getStreetaddress());
         Assert.assertEquals(data.get(1).get(0), postSignUp.getStreetaddress().getAttribute("value"));
         Assert.assertEquals(data.get(1).get(1), postSignUp.getCity().getAttribute("value"));
         Assert.assertEquals(data.get(1).get(2), postSignUp.getZip().getAttribute("value"));
@@ -471,9 +398,8 @@ public class AppInstall {
     @And("^User validates Big Price and enters Credit Card Details$")
     public void user_validates_big_price_and_enters_credit_card_details(DataTable info) {
         List<List<String>> data = info.raw();
+        hooks.explicitWait(driver,30,postSignUp.getBigprice());
         Assert.assertEquals(data.get(1).get(0), postSignUp.getBigprice().getText());
-        //JavascriptExecutor js = (JavascriptExecutor) driver;
-        //js.executeScript("arguments[0].scrollIntoView();", postSignUp.getCardnumber());
         driver.switchTo().frame("__privateStripeFrame4");
         hooks.explicitWait(driver,30,postSignUp.getCardnumber());
         postSignUp.getCardnumber().sendKeys((data.get(1).get(1)));
@@ -499,7 +425,7 @@ public class AppInstall {
         driver=browser.getDriver();
         List<List<String>> data = info.raw();
         Thread.sleep(5000);
-        hooks.explicitWait(driver,300,postSignUp.getBigprice());
+        hooks.explicitWait(driver,100,postSignUp.getBigprice());
         Assert.assertEquals(data.get(1).get(0), postSignUp.getBigprice().getText());
 
     }
@@ -543,13 +469,5 @@ public class AppInstall {
         shopifyPartners.getApproveChagesBtn().click();
 
     }
-
-
-
-
-
-
-
-
 
 }

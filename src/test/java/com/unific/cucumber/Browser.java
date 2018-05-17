@@ -57,6 +57,15 @@ public class Browser {
 
         String browser = prop.getProperty("browser");
         System.out.println(browser);
+        if(os.startsWith("windows"))
+        {
+            if ("chrome".equals(browser)) {
+                System.setProperty("webdriver.chrome.driver", prop.getProperty("driverExecutable") + "/chromedriverWin.exe");
+                driver = new ChromeDriver(cache);
+                driver.manage().window().maximize();
+                //driver.manage().deleteAllCookies();
+            }
+            }
         if(os.equalsIgnoreCase("linux"))
         {
         if ("chrome".equals(browser))

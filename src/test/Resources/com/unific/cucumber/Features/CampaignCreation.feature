@@ -1,6 +1,6 @@
 Feature: Create a campaign and save it as a draft or publish it
   @ignore
-  Scenario: : Create Campaign and publish it
+  Scenario: Create Campaign and publish it
     Given User is at Unific Login Page
     When User Enters valid Email and Password
     And User Clicks on Login

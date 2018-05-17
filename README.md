@@ -25,20 +25,22 @@ You can check them out under the pom.xml
 * Cucumber-junit
 * Cucumber-Java
 * Selenium-Java
+*
 
 # Reporting Test Execution
 
-Currently the framework is supporting JSON, XML and HTML reports
+Currently the framework is supporting JSON, XML and HTML and Extent HTML reports
 
 * JSON reports are stored @ json_output
 * XML reports are stored @ junit_xml
 * HTMl reports are stored @ test-outout/index.html
+* Extent reports under target/Cucumber-Extent-Reports
 
 # Extra features
 
- * The Framework currently supports execution on Chrome and Firefox by 
+ * The Framework now supports execution on Chrome and Firefox with headless Options Available and also Safari,by 
    simply changing the the browser property @ src/test/Resources/com/unific/cucumber/config.properties 
-   to either chrome or firefox
+   to either chrome or firefox or firefoxheadless or chromeheadless or chrome or safari
  * The Framework currently supports execution on all the 4 environments:qa,dev,stage,prod
     by simply changing the Environment property @ src/test/Resources/com/unific/cucumber/config.properties
     

@@ -1,0 +1,193 @@
+[
+  {
+    "line": 1,
+    "name": "App Install for Unific",
+    "description": "",
+    "id": "app-install-for-unific",
+    "keyword": "Feature",
+    "uri": "AdminAppInstall.feature"
+  },
+  {
+    "line": 1,
+    "name": "Create a campaign and save it as a draft or publish it",
+    "description": "",
+    "id": "create-a-campaign-and-save-it-as-a-draft-or-publish-it",
+    "keyword": "Feature",
+    "uri": "CampaignCreation.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5022484288,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Browser.setUp()"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Create Development Store",
+        "description": "",
+        "id": "creating-a-new-dev-store;create-development-store",
+        "after": [
+          {
+            "result": {
+              "duration": 1011104120,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Browser.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 182037964,
+              "error_message": "org.junit.ComparisonFailure: expected:\u003c[one]\u003e but was:\u003c[two]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat org.junit.Assert.assertEquals(Assert.java:144)\r\n\tat com.unific.cucumber.StepDefs.AppInstall.user_has_successfully_logged_into_shopify_partners(AppInstall.java:52)\r\n\tat ✽.Given User has successfully logged into Shopify Partners(CreateDevStore.feature:4)\r\n",
+              "status": "failed"
+            },
+            "line": 4,
+            "name": "User has successfully logged into Shopify Partners",
+            "match": {
+              "location": "AppInstall.user_has_successfully_logged_into_shopify_partners()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "User selects a Business",
+            "match": {
+              "location": "AppInstall.user_selects_a_business()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "User selects to create a developement store",
+            "match": {
+              "location": "AppInstall.user_selects_to_create_a_development_store()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "User enters Login Information",
+            "match": {
+              "location": "AppInstall.user_enters_login_information(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "StoreName",
+                  "Password",
+                  "Confirm Password"
+                ],
+                "line": 8
+              },
+              {
+                "cells": [
+                  "App_Install_Testing",
+                  "Testing@123!",
+                  "Testing@123!"
+                ],
+                "line": 9
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "User enters Store Details",
+            "match": {
+              "location": "AppInstall.user_enters_store_details(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Address",
+                  "City",
+                  "Zip",
+                  "State",
+                  "Country"
+                ],
+                "line": 11
+              },
+              {
+                "cells": [
+                  "TestAddress",
+                  "TestCity",
+                  "12345",
+                  "Alabama",
+                  "United States"
+                ],
+                "line": 12
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "User saves the store details",
+            "match": {
+              "location": "AppInstall.user_saves_the_store_details()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 14,
+            "name": "DevStore is created with a Store URL",
+            "match": {},
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Creating a new Dev Store",
+    "description": "",
+    "id": "creating-a-new-dev-store",
+    "keyword": "Feature",
+    "uri": "CreateDevStore.feature"
+  },
+  {
+    "line": 1,
+    "name": "Login  Feature",
+    "description": "",
+    "id": "login--feature",
+    "keyword": "Feature",
+    "uri": "Login.feature"
+  },
+  {
+    "line": 2,
+    "name": "Pvt Install for Unific",
+    "description": "",
+    "id": "pvt-install-for-unific",
+    "keyword": "Feature",
+    "uri": "PvtAppInstall.feature"
+  }
+]
