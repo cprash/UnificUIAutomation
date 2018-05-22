@@ -51,9 +51,24 @@ public class Login {
     @When("^User Enters valid Email and Password$")
     public void user_enters_valid_email_and_password()  {
         hooks.explicitWait(driver,30,loginPage.getEmailText());
-        loginPage.getEmailText().sendKeys(prop.getProperty("loginEmail"));
-        loginPage.getPasswordText().sendKeys(prop.getProperty("loginPassword"));
-    }
+        String environment = prop.getProperty("Environment");
+        if(environment.equalsIgnoreCase("qa")) {
+            loginPage.getEmailText().sendKeys(prop.getProperty("loginEmailqa"));
+            loginPage.getPasswordText().sendKeys(prop.getProperty("loginPasswordqa"));
+        }
+        else if(environment.equalsIgnoreCase("dev")){
+            loginPage.getEmailText().sendKeys(prop.getProperty("loginEmaildev"));
+            loginPage.getPasswordText().sendKeys(prop.getProperty("loginPassworddev"));
+        }
+        else if(environment.equalsIgnoreCase("stage")){
+            loginPage.getEmailText().sendKeys(prop.getProperty("loginEmailstage"));
+            loginPage.getPasswordText().sendKeys(prop.getProperty("loginPasswordstage"));
+        }
+        else if(environment.equalsIgnoreCase("prod")){
+            loginPage.getEmailText().sendKeys(prop.getProperty("loginEmailprod"));
+            loginPage.getPasswordText().sendKeys(prop.getProperty("loginPasswordprod"));
+        }
+        }
 
     @And("^User Clicks on Login$")
     public void user_clicks_on_login()  {

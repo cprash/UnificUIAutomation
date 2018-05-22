@@ -154,7 +154,12 @@ public class Hooks {
                     + e.getStackTrace());
         }
     }
+    public void click(WebDriver driver,WebElement element)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
 
+    }
     public void setAttribute(WebDriver driver,WebElement element, String attName, String attValue) {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;

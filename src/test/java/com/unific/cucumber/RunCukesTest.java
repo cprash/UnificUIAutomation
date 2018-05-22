@@ -1,5 +1,6 @@
 package com.unific.cucumber;
 
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -8,6 +9,7 @@ import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.Reportable;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.io.*;
@@ -63,14 +65,17 @@ public class RunCukesTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
         try {
+
             Reporter.loadXMLConfig(new File(prop.getProperty("reportConfigPath")));
         }
         catch (Exception e){}
 
         String timestamp=new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 
-        File reportOutputDirectory = new File("target/AdvancedCucumberReports/"+timestamp);
+        File reportOutputDirectory = new File("Reports/AdvancedCucumberReports/"+timestamp);
         List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("cucumber.json");
 

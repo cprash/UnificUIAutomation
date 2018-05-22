@@ -11,5 +11,10 @@ public class LeftNavMenu {
     @FindBy(id = "/campaigns")
     private WebElement CampaignsLink;
 
+    @FindBy(id = "/snippets")
+    private WebElement SnippetsLink;
+
+    public WebElement getSnippetsLink() { return SnippetsLink; }
+
     public WebElement getCampaignsLink() { return CampaignsLink; }
 }
