@@ -1,0 +1,16 @@
+com/unific/cucumber/StepDefs/TemplateEditor.class
+com/unific/cucumber/Repo/SnippetsPage.class
+com/unific/cucumber/Hooks.class
+com/unific/cucumber/Repo/CampaignDashboard.class
+com/unific/cucumber/Browser.class
+com/unific/cucumber/Repo/CampaignCreate.class
+com/unific/cucumber/RunCukesTest.class
+com/unific/cucumber/Repo/PostSignUp.class
+com/unific/cucumber/StepDefs/AppInstall.class
+com/unific/cucumber/StepDefs/CampaignCreation.class
+com/unific/cucumber/Repo/LeftNavMenu.class
+com/unific/cucumber/StepDefs/Login.class
+com/unific/cucumber/Repo/TemplateEditorPage.class
+com/unific/cucumber/StepDefs/Snippets.class
+com/unific/cucumber/Repo/ShopifyPartners.class
+com/unific/cucumber/Repo/LoginPage.class

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+<title>Cucumber Reports  - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+                <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+                <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+    
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+            <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>UnificCucumber</td>
+            <td>25 May 2018, 14:48</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+      </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+          <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+      </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+                      <tr>
+              <td class="location">Browser.setUp()</td>
+              <td>1</td>
+              <td class="duration" data-value="1967361291">1.967</td>
+              <td class="duration" data-value="1967361291">1.967</td>
+              <td class="duration" data-value="1967361291">1.967</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Browser.tearDown()</td>
+              <td>1</td>
+              <td class="duration" data-value="80064686">0.080</td>
+              <td class="duration" data-value="80064686">0.080</td>
+              <td class="duration" data-value="80064686">0.080</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_clicks_on_Create_new_campaign_from_scratch()</td>
+              <td>1</td>
+              <td class="duration" data-value="256536019">0.256</td>
+              <td class="duration" data-value="256536019">0.256</td>
+              <td class="duration" data-value="256536019">0.256</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_clicks_on_Newcampaign()</td>
+              <td>1</td>
+              <td class="duration" data-value="10170363178">10.170</td>
+              <td class="duration" data-value="10170363178">10.170</td>
+              <td class="duration" data-value="10170363178">10.170</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_clicks_on_campaings()</td>
+              <td>1</td>
+              <td class="duration" data-value="103514783">0.103</td>
+              <td class="duration" data-value="103514783">0.103</td>
+              <td class="duration" data-value="103514783">0.103</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_edits_email()</td>
+              <td>1</td>
+              <td class="duration" data-value="10115380642">10.115</td>
+              <td class="duration" data-value="10115380642">10.115</td>
+              <td class="duration" data-value="10115380642">10.115</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_enters_campaign_title_as_something(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="402109715">0.402</td>
+              <td class="duration" data-value="402109715">0.402</td>
+              <td class="duration" data-value="402109715">0.402</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_enters_subject_line_as_something_and_pre_header_as_something(String,String)</td>
+              <td>1</td>
+              <td class="duration" data-value="20535654798">20.535</td>
+              <td class="duration" data-value="20535654798">20.535</td>
+              <td class="duration" data-value="20535654798">20.535</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_is_naviagated_to_CampaignCreation_Page()</td>
+              <td>1</td>
+              <td class="duration" data-value="62881798">0.062</td>
+              <td class="duration" data-value="62881798">0.062</td>
+              <td class="duration" data-value="62881798">0.062</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_selects_action_as_something(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="379241412">0.379</td>
+              <td class="duration" data-value="379241412">0.379</td>
+              <td class="duration" data-value="379241412">0.379</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">CampaignCreation.user_selects_starting_trigger_as_something(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="10551413906">10.551</td>
+              <td class="duration" data-value="10551413906">10.551</td>
+              <td class="duration" data-value="10551413906">10.551</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Login.user_clicks_on_login()</td>
+              <td>1</td>
+              <td class="duration" data-value="119528965">0.119</td>
+              <td class="duration" data-value="119528965">0.119</td>
+              <td class="duration" data-value="119528965">0.119</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Login.user_enters_valid_email_and_password()</td>
+              <td>1</td>
+              <td class="duration" data-value="6883815635">6.883</td>
+              <td class="duration" data-value="6883815635">6.883</td>
+              <td class="duration" data-value="6883815635">6.883</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Login.user_is_at_unific_login_page()</td>
+              <td>1</td>
+              <td class="duration" data-value="17893263310">17.893</td>
+              <td class="duration" data-value="17893263310">17.893</td>
+              <td class="duration" data-value="17893263310">17.893</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_enters_snippet_name_as_something(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="2492812245">2.492</td>
+              <td class="duration" data-value="2492812245">2.492</td>
+              <td class="duration" data-value="2492812245">2.492</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_is_able_to_navigate_to_snippets_page()</td>
+              <td>1</td>
+              <td class="duration" data-value="9949746902">9.949</td>
+              <td class="duration" data-value="9949746902">9.949</td>
+              <td class="duration" data-value="9949746902">9.949</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_is_able_to_see_the_generated_coupon()</td>
+              <td>1</td>
+              <td class="duration" data-value="2751317302">2.751</td>
+              <td class="duration" data-value="2751317302">2.751</td>
+              <td class="duration" data-value="2751317302">2.751</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_selects_active_dates_as_something(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="170115991">0.170</td>
+              <td class="duration" data-value="170115991">0.170</td>
+              <td class="duration" data-value="170115991">0.170</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_selects_applies_to_as_something(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="104426692">0.104</td>
+              <td class="duration" data-value="104426692">0.104</td>
+              <td class="duration" data-value="104426692">0.104</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_selects_coupon_code_format_with_prefix1_as_something_prefix2_as_something_and_suffix_as_something(String,String,String)</td>
+              <td>1</td>
+              <td class="duration" data-value="3341150825">3.341</td>
+              <td class="duration" data-value="3341150825">3.341</td>
+              <td class="duration" data-value="3341150825">3.341</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_selects_discount_type_as_something_and_discount_value_as_something(String,String)</td>
+              <td>1</td>
+              <td class="duration" data-value="3323104378">3.323</td>
+              <td class="duration" data-value="3323104378">3.323</td>
+              <td class="duration" data-value="3323104378">3.323</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_selects_to_create_a_new_snippet()</td>
+              <td>1</td>
+              <td class="duration" data-value="97101525">0.097</td>
+              <td class="duration" data-value="97101525">0.097</td>
+              <td class="duration" data-value="97101525">0.097</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">Snippets.user_selects_to_save()</td>
+              <td>1</td>
+              <td class="duration" data-value="5039261722">5.039</td>
+              <td class="duration" data-value="5039261722">5.039</td>
+              <td class="duration" data-value="5039261722">5.039</td>
+              <td class="passed">100.00%</td>
+            </tr>
+                      <tr>
+              <td class="location">TemplateEditor.user_is_able_to_see_the_active_coupon()</td>
+              <td>1</td>
+              <td class="duration" data-value="30295993609">30.295</td>
+              <td class="duration" data-value="30295993609">30.295</td>
+              <td class="duration" data-value="30295993609">30.295</td>
+              <td class="failed">0.00%</td>
+            </tr>
+                  </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>24</td>
+            <td>24</td>
+            <td class="duration">5.711</td>
+            <td class="duration">30.295</td>
+            <td class="duration">2:17.086</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

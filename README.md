@@ -8,7 +8,7 @@ with Maven Integration. The framework is using the Selenium Webdriver API,Cucumb
   https://www.jetbrains.com/idea/
 
 * Clone the project from the below Repository
-  https://github.com/unificdotcom/gherkin-tests/tree/java-poc
+  https://github.com/unificdotcom/ui-automation-java
 
 * Import the project in IntelliJ
 
@@ -16,6 +16,10 @@ with Maven Integration. The framework is using the Selenium Webdriver API,Cucumb
 
 * Under /src/test/java , fetch for the RunCukesTest.java class 
 * Right click on the class and Run the test
+
+# Prerequisite 
+* JDK should be setup for the project
+* Make sure the Java complier byte code version is set as 1.8
 
 # External Dependencies used
 
@@ -25,7 +29,8 @@ You can check them out under the pom.xml
 * Cucumber-junit
 * Cucumber-Java
 * Selenium-Java
-*
+* Extent Reports by aventstack
+* Advanced Cucumber Reporting net.masterthaught
 
 # Reporting Test Execution
 
@@ -35,6 +40,7 @@ Currently the framework is supporting JSON, XML and HTML and Extent HTML reports
 * XML reports are stored @ junit_xml
 * HTMl reports are stored @ test-outout/index.html
 * Extent reports under target/Cucumber-Extent-Reports
+* Advanced Cucumber Reporting using the net.masterthaught fails maven plugin
 
 # Extra features
 

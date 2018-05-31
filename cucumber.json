@@ -1,28 +1,12 @@
 [
   {
     "line": 1,
-    "name": "App Install for Unific",
-    "description": "",
-    "id": "app-install-for-unific",
-    "keyword": "Feature",
-    "uri": "AdminAppInstall.feature"
-  },
-  {
-    "line": 1,
-    "name": "Create a campaign and save it as a draft or publish it",
-    "description": "",
-    "id": "create-a-campaign-and-save-it-as-a-draft-or-publish-it",
-    "keyword": "Feature",
-    "uri": "CampaignCreation.feature"
-  },
-  {
-    "line": 1,
     "elements": [
       {
         "before": [
           {
             "result": {
-              "duration": 5022484288,
+              "duration": 2052860912,
               "status": "passed"
             },
             "match": {
@@ -31,13 +15,13 @@
           }
         ],
         "line": 3,
-        "name": "Create Development Store",
+        "name": "Validate that user is able to drag and drop Standard Blocks on Template Editor",
         "description": "",
-        "id": "creating-a-new-dev-store;create-development-store",
+        "id": "standardblocks-functionality-validation-for-templateeditor;validate-that-user-is-able-to-drag-and-drop-standard-blocks-on-template-editor",
         "after": [
           {
             "result": {
-              "duration": 1011104120,
+              "duration": 94917574,
               "status": "passed"
             },
             "match": {
@@ -50,144 +34,219 @@
         "steps": [
           {
             "result": {
-              "duration": 182037964,
-              "error_message": "org.junit.ComparisonFailure: expected:\u003c[one]\u003e but was:\u003c[two]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat org.junit.Assert.assertEquals(Assert.java:144)\r\n\tat com.unific.cucumber.StepDefs.AppInstall.user_has_successfully_logged_into_shopify_partners(AppInstall.java:52)\r\n\tat ✽.Given User has successfully logged into Shopify Partners(CreateDevStore.feature:4)\r\n",
-              "status": "failed"
+              "duration": 43628856877,
+              "status": "passed"
             },
-            "line": 4,
-            "name": "User has successfully logged into Shopify Partners",
+            "line": 5,
+            "name": "User is at Unific Login Page",
             "match": {
-              "location": "AppInstall.user_has_successfully_logged_into_shopify_partners()"
+              "location": "Login.user_is_at_unific_login_page()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 2822199217,
+              "status": "passed"
             },
-            "line": 5,
-            "name": "User selects a Business",
+            "line": 6,
+            "name": "User Enters valid Email and Password",
             "match": {
-              "location": "AppInstall.user_selects_a_business()"
+              "location": "Login.user_enters_valid_email_and_password()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "status": "skipped"
-            },
-            "line": 6,
-            "name": "User selects to create a developement store",
-            "match": {
-              "location": "AppInstall.user_selects_to_create_a_development_store()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
+              "duration": 131558250,
+              "status": "passed"
             },
             "line": 7,
-            "name": "User enters Login Information",
+            "name": "User Clicks on Login",
             "match": {
-              "location": "AppInstall.user_enters_login_information(DataTable)"
+              "location": "Login.user_clicks_on_login()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "StoreName",
-                  "Password",
-                  "Confirm Password"
-                ],
-                "line": 8
-              },
-              {
-                "cells": [
-                  "App_Install_Testing",
-                  "Testing@123!",
-                  "Testing@123!"
-                ],
-                "line": 9
-              }
-            ],
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 10343937781,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User is successfully Logged In",
+            "match": {
+              "location": "Login.user_is_successfully_logged_in()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 10130065673,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User clicks on Newcampaign",
+            "match": {
+              "location": "CampaignCreation.user_clicks_on_Newcampaign()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 309435288,
+              "status": "passed"
             },
             "line": 10,
-            "name": "User enters Store Details",
+            "name": "User clicks on Create new campaign from scratch",
             "match": {
-              "location": "AppInstall.user_enters_store_details(DataTable)"
+              "location": "CampaignCreation.user_clicks_on_Create_new_campaign_from_scratch()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "Address",
-                  "City",
-                  "Zip",
-                  "State",
-                  "Country"
-                ],
-                "line": 11
-              },
-              {
-                "cells": [
-                  "TestAddress",
-                  "TestCity",
-                  "12345",
-                  "Alabama",
-                  "United States"
-                ],
-                "line": 12
-              }
-            ],
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 85601510,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User is navigated to CampaignCreation Page",
+            "match": {
+              "location": "CampaignCreation.user_is_naviagated_to_CampaignCreation_Page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 437015107,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "User enters Campaign title as \"Test Campaign Title\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Test Campaign Title",
+                  "offset": 31
+                }
+              ],
+              "location": "CampaignCreation.user_enters_campaign_title_as_something(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 12113041785,
+              "status": "passed"
             },
             "line": 13,
-            "name": "User saves the store details",
+            "name": "User selects Starting Trigger as \"Order Confirmation Event\"",
             "match": {
-              "location": "AppInstall.user_saves_the_store_details()"
+              "arguments": [
+                {
+                  "val": "Order Confirmation Event",
+                  "offset": 34
+                }
+              ],
+              "location": "CampaignCreation.user_selects_starting_trigger_as_something(String)"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "status": "undefined"
+              "duration": 415379058,
+              "status": "passed"
             },
             "line": 14,
-            "name": "DevStore is created with a Store URL",
-            "match": {},
+            "name": "User selects Action as \"Send Email\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Send Email",
+                  "offset": 24
+                }
+              ],
+              "location": "CampaignCreation.user_selects_action_as_something(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 503048983,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User enters Subject Line as \"Order123\" and Pre header as \"{{order_id}}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Order123",
+                  "offset": 29
+                },
+                {
+                  "val": "{{order_id}}",
+                  "offset": 58
+                }
+              ],
+              "location": "CampaignCreation.user_enters_subject_line_as_something_and_pre_header_as_something(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 27658320190,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "User edits Email",
+            "match": {
+              "location": "CampaignCreation.user_edits_email()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 105099908,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "User clears Template",
+            "match": {
+              "location": "TemplateEditor.user_clears_template()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 22298789716,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "User drags Standard blocks on the Template Canvas",
+            "match": {
+              "location": "TemplateEditor.user_drags_standard_blocks_on_the_template_canvas()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 51797,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "User is able to validate the blocks on Template Canvas",
+            "match": {
+              "location": "TemplateEditor.user_is_able_to_validate_the_blocks_on_template_canvas()"
+            },
             "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Creating a new Dev Store",
+    "name": "StandardBlocks Functionality validation for TemplateEditor",
     "description": "",
-    "id": "creating-a-new-dev-store",
+    "id": "standardblocks-functionality-validation-for-templateeditor",
     "keyword": "Feature",
-    "uri": "CreateDevStore.feature"
-  },
-  {
-    "line": 1,
-    "name": "Login  Feature",
-    "description": "",
-    "id": "login--feature",
-    "keyword": "Feature",
-    "uri": "Login.feature"
-  },
-  {
-    "line": 2,
-    "name": "Pvt Install for Unific",
-    "description": "",
-    "id": "pvt-install-for-unific",
-    "keyword": "Feature",
-    "uri": "PvtAppInstall.feature"
+    "uri": "StandardBlocksTemplateEditor.feature"
   }
 ]

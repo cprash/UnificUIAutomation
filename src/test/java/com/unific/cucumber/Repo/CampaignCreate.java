@@ -42,13 +42,11 @@ public class CampaignCreate {
     @FindBy(xpath = "//div[@class='col']//button[contains(text(),'Save')]")
     private WebElement selectactionsaveBtn;
 
-
     @FindBy(xpath = "//input[@placeholder='Campaign title']")
     private WebElement campaigntitleTxt;
 
     @FindBy(xpath = "//div[contains(@id,'jsPlumb')]//i[@class='fa fa-plus-circle fa-2x']")
     private WebElement selectanactionLink;
-
 
     @FindBy(xpath = "//div[@data-test='SEND_EMAIL']")
     private WebElement sendEmailLink;
@@ -89,6 +87,10 @@ public class CampaignCreate {
     @FindBy(xpath = "//button[@class='btn btn-link' and @type='button']/i")
     private WebElement cancelLink;
 
+    @FindBy(id = "edit-email-button")
+    private WebElement EditEmailLink;
+
+    public WebElement getEditEmailLink() { return EditEmailLink; }
 
     public WebElement getStartingtriggerLink() { return startingtriggerLink; }
 
@@ -107,7 +109,6 @@ public class CampaignCreate {
     public WebElement getSaveBtn() { return saveBtn; }
 
     public WebElement getSelectactionsaveBtn() { return selectactionsaveBtn; }
-
 
     public WebElement getCampaigntitleTxt() { return campaigntitleTxt; }
 

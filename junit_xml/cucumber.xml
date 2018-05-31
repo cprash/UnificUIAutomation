@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="133.13018">
+<testcase classname="StandardBlocks Functionality validation for TemplateEditor" name="Validate that user is able to drag and drop Standard Blocks on Template Editor" time="133.13018">
+<system-out><![CDATA[Given User is at Unific Login Page..........................................passed
+When User Enters valid Email and Password...................................passed
+And User Clicks on Login....................................................passed
+Then User is successfully Logged In.........................................passed
+When User clicks on Newcampaign.............................................passed
+And User clicks on Create new campaign from scratch.........................passed
+Then User is navigated to CampaignCreation Page.............................passed
+When User enters Campaign title as "Test Campaign Title"....................passed
+And User selects Starting Trigger as "Order Confirmation Event".............passed
+And User selects Action as "Send Email".....................................passed
+And User enters Subject Line as "Order123" and Pre header as "{{order_id}}".passed
+And User edits Email........................................................passed
+And User clears Template....................................................passed
+And User drags Standard blocks on the Template Canvas.......................passed
+Then User is able to validate the blocks on Template Canvas.................passed
+]]></system-out>
+</testcase>
+</testsuite>

@@ -27,7 +27,7 @@ import java.util.Properties;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/Resources/com/unific/cucumber/Features"},
-        plugin= {"pretty","html:test-output","json:target/cucumber.json", "junit:junit_xml/cucumber.xml","com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-Extent-reports/report.html"},
+        plugin= {"pretty","html:test-output","json:cucumber.json", "junit:junit_xml/cucumber.xml","com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-Extent-reports/report.html"},
         tags= {"~@ignore"},
         dryRun =false
 )

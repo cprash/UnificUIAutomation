@@ -1,7 +1,7 @@
-
+@ignore
 Feature: Pvt Install for Unific
 
-  @ignore
+
   Scenario: Pvt Installation on Shopify Dev Store [ PD-1506 ] [ PD-1529 ] [ PD-1536]
     Given User has successfully logged into Shopify Partners
     When User selects a Business

@@ -29,6 +29,7 @@ public class Browser {
     private PostSignUp postSignUp;
     private LeftNavMenu leftNavMenu;
     private SnippetsPage snippetsPage;
+    private TemplateEditorPage templateEditorPage;
 
 
     public DesiredCapabilities cache=new DesiredCapabilities();
@@ -165,10 +166,6 @@ public class Browser {
             driver.manage().deleteAllCookies();
         }
 
-
-
-
-
         loginPage = new LoginPage(driver);
         campaignDashboard = new CampaignDashboard(driver);
         campaignCreate = new CampaignCreate(driver);
@@ -176,7 +173,7 @@ public class Browser {
         postSignUp = new PostSignUp(driver);
         leftNavMenu = new LeftNavMenu(driver);
         snippetsPage = new SnippetsPage(driver);
-
+        templateEditorPage = new TemplateEditorPage(driver);
 
         //homePage = new HomePage(driver);
         //settings = new SettingsPage(driver);
@@ -200,6 +197,8 @@ public class Browser {
         public LeftNavMenu getLeftNavMenu() { return leftNavMenu; }
 
         public SnippetsPage getSnippetsPage() { return snippetsPage; }
+
+        public TemplateEditorPage getTemplateEditorPage() { return templateEditorPage; }
 
     @After
         public void tearDown(){

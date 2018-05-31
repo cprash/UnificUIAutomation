@@ -1,5 +1,6 @@
+@ignore
 Feature: Creating a new Dev Store
-  @ignore
+
   Scenario: Create Development Store
     Given User has successfully logged into Shopify Partners
     When User selects a Business

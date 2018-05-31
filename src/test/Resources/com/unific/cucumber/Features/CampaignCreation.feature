@@ -1,3 +1,4 @@
+@ignore
 Feature: Create a campaign and save it as a draft or publish it
   @ignore
   Scenario: Create Campaign and publish it

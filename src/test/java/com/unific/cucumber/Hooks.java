@@ -137,7 +137,7 @@ public class Hooks {
         return info;
 
     }
-    public void doubleClick(WebDriver driver,WebElement element) {
+    public static void doubleClick(WebDriver driver,WebElement element) {
         try {
             Actions action = new Actions(driver).doubleClick(element);
             action.build().perform();
@@ -154,17 +154,40 @@ public class Hooks {
                     + e.getStackTrace());
         }
     }
-    public void click(WebDriver driver,WebElement element)
+    public static void click(WebDriver driver,WebElement element)
     {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
 
     }
-    public void setAttribute(WebDriver driver,WebElement element, String attName, String attValue) {
+    public  void setAttribute(WebDriver driver,WebElement element, String attName, String attValue) {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);",
                 element, attName, attValue);
+    }
+
+    public static  void dragandDrop(WebDriver driver,WebElement source,WebElement target) throws InterruptedException {
+        Actions actions = new Actions(driver);
+        Action dragandDrop=actions.clickAndHold(source).build();
+        dragandDrop.perform();
+        Thread.sleep(3000);
+        dragandDrop=actions.moveByOffset(-1,-1).build();
+        dragandDrop.perform();
+        Thread.sleep(3000);
+        dragandDrop=actions.moveToElement(target).build();
+        dragandDrop.perform();
+        Thread.sleep(3000);
+        dragandDrop=actions.release().build();
+        dragandDrop.perform();
+        //Actions actions = new Actions(driver);
+        //actions.dragAndDropBy(source,800,0).build().perform();
+
+    }
+
+    public static void HoverAndClick(WebDriver driver,WebElement elementToHover,WebElement elementToClick) {
+        Actions action = new Actions(driver);
+        action.moveToElement(elementToHover).click(elementToClick).build().perform();
     }
 
 

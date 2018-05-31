@@ -4,6 +4,8 @@ import com.unific.cucumber.Browser;
 import com.unific.cucumber.Hooks;
 import com.unific.cucumber.Repo.CampaignCreate;
 import com.unific.cucumber.Repo.CampaignDashboard;
+import com.unific.cucumber.Repo.LeftNavMenu;
+import com.unific.cucumber.Repo.TemplateEditorPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -24,6 +26,8 @@ public class CampaignCreation {
     private Browser browser;
     private CampaignDashboard campaignDashboard;
     private CampaignCreate campaignCreate;
+    private LeftNavMenu leftNavMenu;
+    private TemplateEditorPage templateEditorPage;
     public String strArg2;
 
     public CampaignCreation (Browser browser) { this.browser=browser; }
@@ -105,9 +109,9 @@ public class CampaignCreation {
         //JavascriptExecutor js = (JavascriptExecutor) driver;
         //js.executeScript("arguments[0].click();", campaignCreate.getSelectanactionLink());
 
-                if(strArg1.equals("Send Email"))
-            campaignCreate.getSendEmailLink().click();
-        hooks.explicitWait(driver,30,campaignCreate.getSelectanactionLink());
+        if(strArg1.equals("Send Email"))
+        campaignCreate.getSendEmailLink().click();
+        hooks.explicitWait(driver,30,campaignCreate.getNextBtn());
         campaignCreate.getNextBtn().click();
     }
 
@@ -115,11 +119,7 @@ public class CampaignCreation {
     public void user_enters_subject_line_as_something_and_pre_header_as_something(String strArg1, String strArg2) throws InterruptedException {
         campaignCreate.getSubjectLineTxt().sendKeys(strArg1);
         campaignCreate.getPreHeaderTxt().sendKeys(strArg2);
-        //JavascriptExecutor js = (JavascriptExecutor) driver;
-        //js.executeScript("arguments[0].scrollIntoView();", campaignCreate.getSelectactionsaveBtn());
-        Thread.sleep(10000);
-        campaignCreate.getSelectactionsaveBtn().click();
-        Thread.sleep(10000);
+
     }
 
     @And("^User enters an End Goal as \"([^\"]*)\"$")
@@ -174,6 +174,25 @@ public class CampaignCreation {
             else check++;
 
         }
+    }
+
+    @When("^User clicks on campaigns$")
+    public void user_clicks_on_campaings() throws Throwable {
+        driver=browser.getDriver();
+        leftNavMenu=browser.getLeftNavMenu();
+        leftNavMenu.getCampaignsLink().click();
+    }
+
+    @And("^User edits Email$")
+    public void user_edits_email() throws InterruptedException {
+        driver=browser.getDriver();
+        campaignCreate=browser.getCampaignCreate();
+        templateEditorPage=browser.getTemplateEditorPage();
+        hooks.explicitWait(driver,30,campaignCreate.getEditEmailLink());
+        campaignCreate.getEditEmailLink().click();
+        hooks.explicitWait(driver,80,templateEditorPage.getEcommerceSnippetLink());
+
+
     }
 
 

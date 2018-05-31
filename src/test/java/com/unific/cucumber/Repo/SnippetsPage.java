@@ -104,6 +104,11 @@ public class SnippetsPage {
     @FindBy(id = "react-select-6--option-0")
     private WebElement selectedproductsListOptions;
 
+    @FindBy(xpath = "//button[contains(text(),'ok')]")
+    private  WebElement okBtn;
+
+    public WebElement getOkBtn() { return okBtn; }
+
     public WebElement getSelectedproductsList() { return selectedproductsList; }
 
     public WebElement getSelectedproductsListOptions() { return selectedproductsListOptions; }

@@ -50,9 +50,6 @@ public class ShopifyPartners {
     @FindBy(xpath = "//a[contains(text(),'Create store') and @class='ui-button ui-button--primary ui-title-bar__action']")
     private WebElement createstoreLink;
 
-
-
-
     //@FindBy(xpath = "//a[contains(text(),'Create store')]")
     //private WebElement createstoreLink;
 
@@ -100,6 +97,7 @@ public class ShopifyPartners {
 
     @FindBy(linkText = "unific-staging")
     private WebElement unificstagingLink;
+
 
     @FindBy(linkText = "unific-prod")
     private WebElement unificprodLink;
@@ -170,7 +168,7 @@ public class ShopifyPartners {
     @FindBy(id ="account_setup_first_name")
     private WebElement firstName;
 
-    @FindBy(id ="account_setup_lastt_name")
+    @FindBy(id ="account_setup_last_name")
     private WebElement lasttName;
 
     @FindBy(id ="zip")

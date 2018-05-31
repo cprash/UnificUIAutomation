@@ -54,8 +54,6 @@ public class AppInstall {
         driver.get(prop.getProperty("shopifyPartnerUrl"));
         hooks.explicitWait(driver,30,shopifyPartners.getPartnerloginlink());
         shopifyPartners.getPartnerloginlink().click();
-        //JavascriptExecutor js = (JavascriptExecutor) driver;
-        //js.executeScript("arguments[0].click();", shopifyPartners.getPartnerloginlink());
         Thread.sleep(6000);
         shopifyPartners=browser.getShopifyPartners();
         try {
@@ -72,7 +70,6 @@ public class AppInstall {
             shopifyPartners.getShopifyEmail().sendKeys(prop.getProperty("shopifyPartnerEmailqa"));
             hooks.explicitWait(driver, 30, shopifyPartners.getShopifyPassword());
             shopifyPartners.getShopifyPassword().sendKeys(prop.getProperty("shopifyPartnerPasswordqa"));
-            //shopifyPartners.getShopifyloginBtn().click();
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].click();", shopifyPartners.getShopifyloginBtn());
         }

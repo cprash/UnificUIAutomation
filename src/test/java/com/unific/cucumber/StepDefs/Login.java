@@ -80,7 +80,7 @@ public class Login {
     @Then("^User is successfully Logged In$")
     public void user_is_successfully_logged_in()  {
         campaignDashboard=browser.getCampaignDashboard();
-        hooks.explicitWait(driver,20,campaignDashboard.getUnificLogo());
+        hooks.explicitWait(driver,80,campaignDashboard.getUnificLogo());
         campaignDashboard.getUnificLogo().isDisplayed();
 
     }

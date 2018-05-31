@@ -8,8 +8,10 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +25,7 @@ public class Snippets {
     private LeftNavMenu leftNavMenu;
     private SnippetsPage snippetsPage;
 
-    public String str1;
+    public static String str1;
 
     public Snippets (Browser browser) { this.browser=browser; }
 
@@ -41,13 +43,43 @@ public class Snippets {
         int check=1;
         for(WebElement ele:list1){
         if(str1.equalsIgnoreCase(ele.getText()))
-            {
+            {   System.out.println("1234");
                 WebElement ele1=driver.findElement(By.xpath(".//*[@id='app']/div/div/div/div/div/div[2]/div/table/tbody/tr["+check+"]/td[2]/span"));
                 Assert.assertEquals("ACTIVE",ele1.getText());
                 break;
             }
             else check++;
         }
+    }
+
+    @And("^User can inactivate the coupon$")
+    public void user_can_inactivate_the_coupon() throws InterruptedException {
+        List<WebElement> list1 = snippetsPage.getSnippetstablecols();
+        int cols=list1.size();
+        List<WebElement> list2 = snippetsPage.getSnippetstablerows();
+        int rows=list2.size();
+        int check=1;
+        for(WebElement ele:list1){
+            if(str1.equalsIgnoreCase(ele.getText()))
+            {   System.out.println("234");
+                WebElement ele3=driver.findElement(By.xpath(".//*[@id='app']/div/div/div/div/div/div[2]/div/table/tbody/tr["+check+"]/td[2]/span"));
+                WebElement ele1=driver.findElement(By.xpath(".//*[@id='app']/div/div/div/div/div/div[2]/div/table/tbody/tr["+check+"]/td[6]/div/button"));
+                ele1.click();
+                WebElement ele2=driver.findElement(By.xpath(".//*[@id='app']/div/div/div/div/div/div[2]/div/table/tbody/tr["+check+"]/td[6]/div/div/button/a/span"));
+                Thread.sleep(3000);
+                Actions b = new Actions(driver).moveToElement(ele2).click();
+                b.build().perform();
+                //JavascriptExecutor js = (JavascriptExecutor) driver;
+                //js.executeScript("arguement[0].click()",ele2);
+                Thread.sleep(3000);
+                snippetsPage.getOkBtn().click();
+                Thread.sleep(4000);
+                Assert.assertEquals("INACTIVE",ele3.getText());
+                break;
+            }
+            else check++;
+        }
+
     }
 
     @And("^User is able to navigate to Snippets Page$")
@@ -139,9 +171,9 @@ public class Snippets {
         else if(strArg1.equalsIgnoreCase("Selected products"))
         {
             snippetsPage.getSelectedproductsRadio().click();
-            Thread.sleep(3000);
+            snippetsPage.getSelectedproductsList();
             snippetsPage.getSelectedproductsList().click();
-            Thread.sleep(2000);
+            hooks.explicitWait(driver,30,snippetsPage.getSelectedproductsListOptions());
             snippetsPage.getSelectedproductsListOptions().click();
         }
     }
@@ -153,7 +185,7 @@ public class Snippets {
             snippetsPage.getAlwaysactiveRadio().click();
         else if(strArg1.equalsIgnoreCase("Date in the future")) {
             snippetsPage.getDateinthefutureRadio().click();
-            Thread.sleep(3000);
+            hooks.explicitWait(driver,30,snippetsPage.getDaysTxt());
             snippetsPage.getDaysTxt().sendKeys("10");
             snippetsPage.getHoursTxt().sendKeys("10");
             snippetsPage.getMinutesTxt().sendKeys("10");
@@ -161,7 +193,7 @@ public class Snippets {
         }
         else if (strArg1.equalsIgnoreCase("Between specific dates")) {
             snippetsPage.getBetweenspecificdatesRadio().click();
-            Thread.sleep(3000);
+            hooks.explicitWait(driver,30,snippetsPage.getStartDate());
             snippetsPage.getStartDate().sendKeys("05/12/2018");
             snippetsPage.getEndDate().sendKeys("12/12/2019");
         }
@@ -171,8 +203,11 @@ public class Snippets {
 
     @And("^User selects to save$")
     public void user_selects_to_save() throws InterruptedException {
-            Thread.sleep(5000);
+
             hooks.click(this.driver,snippetsPage.getSaveBtn());
             Thread.sleep(5000);
     }
+
+
+
 }
